@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANA SEJAHTRA - Detail Tagihan & Pembayaran</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #EBF1F7;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .text-navy {
+            color: #0F1D38;
+        }
+
+        .text-muted-blue {
+            color: #8C9BB0;
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 18px rgba(15, 29, 56, 0.04);
+        }
+
+        .toast-slide {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translate(-50%, -100%);
+            opacity: 0;
+        }
+
+        .toast-slide.show {
+            transform: translate(-50%, 20px);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-5">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast-slide fixed top-0 left-1/2 z-50 bg-gray-900/90 text-white text-xs sm:text-sm font-medium px-4 py-2.5 rounded-full flex items-center gap-2 shadow-xl backdrop-blur-md pointer-events-none">
+        <i class="fa-solid fa-circle-check text-green-400"></i>
+        <span id="toast-message">Teks berhasil disalin!</span>
+    </div>
+
+    <!-- Main Mobile Container -->
+    <main class="w-full max-w-[420px] bg-[#EBF1F7] rounded-3xl overflow-hidden py-3">
+
+        <!-- Header -->
+        <header class="flex items-center justify-between mb-4 px-2">
+            <div class="flex items-center gap-3">
+                <!-- App Icon -->
+                <div class="relative w-12 h-12 flex-shrink-0">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00D494] to-[#00A86B] flex items-center justify-center shadow-md relative overflow-hidden">
+                        <!-- Coin Accent -->
+                        <div class="absolute -top-1 right-2 w-3.5 h-3.5 bg-amber-300 rounded-full border-2 border-emerald-500 shadow-sm"></div>
+                        <!-- Rp Symbol -->
+                        <span class="text-white font-extrabold text-lg tracking-tight select-none">Rp</span>
+                    </div>
+                    <!-- OJK Micro Badge -->
+                    <div class="absolute -bottom-1 -right-1 bg-white px-1 py-0.5 rounded shadow border border-gray-100 flex items-center gap-0.5 scale-90">
+                        <span class="text-[8px] font-black text-red-600 tracking-tighter leading-none">OJK</span>
+                    </div>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-xl sm:text-[22px] font-extrabold tracking-tight text-[#0D2040]">
+                    DANA SEJAHTRA
+                </h1>
+            </div>
+
+            <!-- Jatuh Tempo Badge -->
+            <div class="bg-[#FFEAEA] border border-[#FFD5D5] px-3.5 py-1 rounded-full shadow-sm">
+                <span class="text-[#E02638] text-xs font-semibold">Jatuh Tempo</span>
+            </div>
+        </header>
+
+        <!-- Card 1: Ringkasan Pinjaman -->
+        <section class="bg-white rounded-2xl p-5 mb-3.5 card-shadow transition hover:shadow-md">
+            <div class="flex items-center justify-between pb-3">
+                <span class="text-muted-blue text-[13px] font-medium">Pinjaman Dana Cepat</span>
+                <span class="text-navy text-[15px] font-bold">Rp 2.200.000</span>
+            </div>
+            <div class="flex items-center justify-between pt-1">
+                <span class="text-muted-blue text-[13px] font-medium">Tanggal Jatuh Tempo</span>
+                <span class="text-[#E02638] text-[15px] font-bold tracking-tight">12/09/2026</span>
+            </div>
+        </section>
+
+        <!-- Card 2: Informasi Pengguna & Akun -->
+        <section class="bg-[#E4ECF4]/80 rounded-2xl p-5 mb-3.5 space-y-3 card-shadow border border-white/60">
+            <div class="flex items-center justify-between text-[13px]">
+                <span class="text-muted-blue font-medium">Nama pengguna</span>
+                <span class="text-navy font-bold tracking-wide">HASPIZAR</span>
+            </div>
+            <div class="flex items-center justify-between text-[13px]">
+                <span class="text-muted-blue font-medium">Nomor ponsel</span>
+                <span class="text-navy font-bold">812****831</span>
+            </div>
+            <div class="flex items-center justify-between text-[13px]">
+                <span class="text-muted-blue font-medium">Mandiri</span>
+                <span class="text-navy font-bold tracking-tight">1080014361662</span>
+            </div>
+            <div class="flex items-center justify-between text-[13px]">
+                <span class="text-muted-blue font-medium">No Pinjaman</span>
+                <span class="text-navy font-bold tracking-tight">HHF294729472KNAS0</span>
+            </div>
+        </section>
+
+        <!-- Card 3: Virtual Account Transfer Card -->
+        <section class="rounded-2xl overflow-hidden card-shadow shadow-md">
+            <!-- Blue Header -->
+            <div class="bg-[#1976D2] p-4 flex items-center justify-between text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm shadow-inner">
+                        <i class="fa-solid fa-building-columns text-lg"></i>
+                    </div>
+                    <div>
+                        <div class="text-[11px] text-blue-100 font-normal leading-tight">Transfer ke</div>
+                        <div class="text-base font-extrabold tracking-wide">BRI VA</div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button type="button" class="border border-white/40 bg-white/10 hover:bg-white/20 active:scale-95 transition px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
+                        Virtual Account
+                    </button>
+                    <button type="button" onclick="closeNotice()" aria-label="Tutup" class="text-white/80 hover:text-white p-1 ml-1 text-sm active:scale-90 transition">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- White Card Body -->
+            <div class="bg-white p-5 pt-4">
+                <div class="text-muted-blue text-[13px] font-medium mb-1">
+                    Nomor Virtual Account
+                </div>
+
+                <!-- VA Number & Copy Button -->
+                <div class="flex items-center justify-between gap-2 mb-4">
+                    <span id="va-number" class="text-navy font-black text-[19px] sm:text-[21px] tracking-tight">
+                        1442016091200673
+                    </span>
+                    <button onclick="copyToClipboard('1442016091200673', 'Nomor Virtual Account')" 
+                            class="flex items-center gap-1.5 bg-[#E53935] hover:bg-[#D32F2F] active:bg-[#C62828] text-white px-3.5 py-1.5 rounded-xl text-xs font-semibold transition shadow-sm active:scale-95 flex-shrink-0 cursor-pointer">
+                        <i class="fa-regular fa-clone text-xs"></i>
+                        <span>Salin VA</span>
+                    </button>
+                </div>
+
+                <!-- Amount Box -->
+                <div class="bg-[#FFF8F6] rounded-2xl p-3.5 border border-[#FFE7E3] flex items-center justify-between">
+                    <div>
+                        <div class="text-muted-blue text-[12px] font-medium mb-0.5">Jumlah Transfer</div>
+                        <div id="transfer-amount" class="text-[#D32F2F] text-[20px] font-extrabold tracking-tight leading-snug">
+                            Rp 2.200.000
+                        </div>
+                    </div>
+                    <!-- Copy Amount Button -->
+                    <button onclick="copyToClipboard('2200000', 'Nomor nominal transfer')" 
+                            title="Salin Nominal"
+                            class="w-10 h-10 rounded-xl border border-red-200 bg-white flex items-center justify-center text-[#D32F2F] hover:bg-red-50 active:scale-95 transition shadow-xs">
+                        <i class="fa-regular fa-clone text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- Interactive Accordion: Cara Pembayaran -->
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <button onclick="toggleInstructions()" class="w-full flex items-center justify-between text-left text-xs font-bold text-gray-700 hover:text-blue-600 transition">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-blue-500"></i>
+                            Panduan Cara Pembayaran BRI
+                        </span>
+                        <i id="accordion-icon" class="fa-solid fa-chevron-down text-gray-400 text-[10px] transition-transform duration-200"></i>
+                    </button>
+
+                    <div id="instructions" class="hidden mt-3 space-y-2.5 text-xs text-gray-600 bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <div class="flex gap-2">
+                            <span class="font-bold text-blue-600">1.</span>
+                            <p>Buka aplikasi <strong>BRImo</strong> atau mesin <strong>ATM BRI</strong> terdekat.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-bold text-blue-600">2.</span>
+                            <p>Pilih menu <strong>Bayar & Beli</strong> > <strong>BRIVA (BRI Virtual Account)</strong>.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-bold text-blue-600">3.</span>
+                            <p>Masukkan nomor Virtual Account: <strong class="text-gray-900 font-mono">1442016091200673</strong>.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-bold text-blue-600">4.</span>
+                            <p>Pastikan nama pelanggan tertera <strong>HASPIZAR</strong> dengan nominal <strong>Rp 2.200.000</strong>.</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-bold text-blue-600">5.</span>
+                            <p>Konfirmasi dan simpan bukti transaksi pembayaran Anda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="mt-4">
+                    <button onclick="checkPaymentStatus()" 
+                            class="w-full py-3 bg-[#1976D2] hover:bg-[#1565C0] active:scale-[0.98] text-white rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-md transition">
+                        <i class="fa-solid fa-arrows-rotate" id="refresh-icon"></i>
+                        <span>Saya Sudah Membayar</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Trust note -->
+        <footer class="mt-4 text-center">
+            <p class="text-[11px] text-gray-500 flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-shield-halved text-emerald-600 text-xs"></i>
+                Transaksi aman terenkripsi oleh SSL 256-bit
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Copy to clipboard helper
+        function copyToClipboard(text, label) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${label} berhasil disalin!`);
+            }).catch(() => {
+                // Fallback for older webviews
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast(`${label} berhasil disalin!`);
+                } catch (err) {
+                    showToast('Gagal menyalin');
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        // Show toast animation
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        // Toggle accordion for instructions
+        function toggleInstructions() {
+            const el = document.getElementById('instructions');
+            const icon = document.getElementById('accordion-icon');
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                el.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Simulate status check
+        function checkPaymentStatus() {
+            const icon = document.getElementById('refresh-icon');
+            icon.classList.add('animate-spin');
+            
+            showToast('Memeriksa status transaksi...');
+
+            setTimeout(() => {
+                icon.classList.remove('animate-spin');
+                showToast('Pembayaran sedang diverifikasi oleh sistem (1-5 menit)');
+            }, 1200);
+        }
+
+        function closeNotice() {
+            showToast('Informasi VA disimpan. Jangan lupa menyelesaikan sebelum jatuh tempo.');
+        }
+    </script>
+</body>
+</html>
